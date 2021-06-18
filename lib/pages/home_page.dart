@@ -1,4 +1,5 @@
 import 'package:catalog_app/models/catalog.dart';
+import 'package:catalog_app/pages/home_detail_page.dart';
 import 'package:catalog_app/widgets/drawer.dart';
 import 'package:catalog_app/widgets/item_widget.dart';
 import 'package:flutter/material.dart';
@@ -11,10 +12,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final int days = 30;
-
-  final String name = "Flutter Dev";
-
   @override
   void initState() {
     // TODO: implement initState
@@ -46,9 +43,19 @@ class _HomePageState extends State<HomePage> {
           // itemCount: CatalogModel.items.length,
           itemCount: CatalogModel.items.length,
           itemBuilder: (context, index) {
-            return ItemWidget(
-              item: CatalogModel.items[index],
-              // item: dummyList[index],
+            return InkWell(
+              onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder:
+                      (context) =>
+                          HomeDetailPage(
+                              catalog: CatalogModel.items[index])
+                  )
+              ),
+              child: ItemWidget(
+                item: CatalogModel.items[index],
+                // item: dummyList[index],
+              ),
             );
             },
         ): Center(

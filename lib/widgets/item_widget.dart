@@ -14,11 +14,14 @@ class ItemWidget extends StatelessWidget {
     return Card(
       shape: StadiumBorder(),
       child: ListTile(
-        onTap: () {
-          print("Hi");
-        },
+        // onTap: () {
+        //   print("Hi");
+        // },
         // leading: Image.network(item.imageUrl),
-        title: Text(item.name),
+        title: Hero(
+            tag: Key(item.Id.toString()),
+            child: Text(item.name)
+        ),
         subtitle: Text(item.desc),
         trailing: Text(
           "\$${item.price}",
