@@ -2,6 +2,11 @@ import 'package:catalog_app/models/catalog.dart';
 
 class CartModel {
 
+  static final cartModel = CartModel._internal();
+
+  CartModel._internal();
+  factory CartModel() => cartModel;
+
   late CatalogModel _catalog;
 
   //Collection of Ids of each item
