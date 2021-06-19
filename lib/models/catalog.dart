@@ -1,8 +1,13 @@
 class CatalogModel {
   static List<Item> items = [];
+
+  //Get Element by Id
+  Item getById(int id) =>
+      items.firstWhere((element) => element.Id == id, orElse: null);
+
+  // Get Element by Position
+  Item getByPosition(int pos) => items[pos];
 }
-
-
 
 class Item {
   // ignore: non_constant_identifier_names
