@@ -2,17 +2,20 @@ import 'package:catalog_app/models/catalog.dart';
 import 'package:catalog_app/widgets/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:flutter_lorem/flutter_lorem.dart';
 
 class HomeDetailPage extends StatelessWidget {
   final Item catalog;
 
   const HomeDetailPage({Key? key, required this.catalog}) :
-        assert(catalog!=null),
+        assert(catalog != null),
         super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        // backgroundColor: Colors.transparent,
+      ),
       backgroundColor: Colors.white60,
       bottomNavigationBar: Container(
         color: Colors.white,
@@ -27,8 +30,8 @@ class HomeDetailPage extends StatelessWidget {
                   shape: MaterialStateProperty.all(
                     StadiumBorder(),
                   )),
-              child: "Buy".text.make(),
-            ).wh(100, 50)
+              child: "Add To Cart".text.make(),
+            ).wh(150, 50)
           ],
         ).p16(),
       ),
@@ -51,6 +54,8 @@ class HomeDetailPage extends StatelessWidget {
                     catalog.name.text.xl4.color(Colors.blue).bold.make(),
                     catalog.desc.text.textStyle(context.captionStyle!).xl.make(),
                     10.heightBox,
+                    lorem(paragraphs: 2,words: 60).
+                    text.textStyle(context.captionStyle!).xl.make(),
                   ],
                 ).py64(),
               ),

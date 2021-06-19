@@ -1,7 +1,9 @@
 import 'package:catalog_app/models/catalog.dart';
 import 'package:catalog_app/pages/home_detail_page.dart';
+import 'package:catalog_app/utils/routes.dart';
 import 'package:catalog_app/widgets/drawer.dart';
 import 'package:catalog_app/widgets/item_widget.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
@@ -34,6 +36,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     // final dummyList = List.generate(50, (index) => CatalogModel.items[0]);
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, MyRoutes.cartRoute);
+        },
+        child: Icon(CupertinoIcons.cart),
+      ),
       appBar: AppBar(
         title: Text("Catalog App"),
       ),
