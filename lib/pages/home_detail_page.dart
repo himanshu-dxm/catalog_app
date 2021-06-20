@@ -1,6 +1,5 @@
 import 'package:catalog_app/models/cart.dart';
 import 'package:catalog_app/models/catalog.dart';
-import 'package:catalog_app/widgets/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
@@ -62,21 +61,16 @@ class HomeDetailPage extends StatelessWidget {
   }
 }
 
-class _AddToCart extends StatefulWidget {
+class _AddToCart extends StatelessWidget {
   final Item catalog;
-  const _AddToCart({
+  _AddToCart({
     Key? key, required this.catalog,
   }) : super(key: key);
 
-  @override
-  __AddToCartState createState() => __AddToCartState();
-}
-
-class __AddToCartState extends State<_AddToCart> {
   final _cart = CartModel();
   @override
   Widget build(BuildContext context) {
-    bool isInCart = _cart.items.contains(widget.catalog) ? true:false;
+    bool isInCart = _cart.items.contains(catalog) ? true:false;
     return ElevatedButton(
       onPressed: () {
         isInCart.toggle();
@@ -84,8 +78,8 @@ class __AddToCartState extends State<_AddToCart> {
           isInCart.toggle();
           final _catalog = CatalogModel();
           _cart.catalog = _catalog;
-          _cart.add(widget.catalog);
-          setState(() {});
+          _cart.add(catalog);
+          // setState(() {});
         }
       },
       style: ButtonStyle(
